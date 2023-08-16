@@ -1,4 +1,4 @@
-# A Demo Fullstack TRPC App
+# A Demo Chat TRPC App
 
 This is a learning project to figure out how TRPC works both in the backend and frontend of the code.
 
