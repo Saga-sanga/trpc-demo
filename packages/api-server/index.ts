@@ -2,7 +2,7 @@ import express from "express";
 import { router, publicProcedure } from "./trpc";
 import * as trpcExpress from "@trpc/server/adapters/express";
 import { inferAsyncReturnType } from "@trpc/server";
-import cors from "cors"
+import cors from "cors";
 
 const createContext = ({
   req,
@@ -11,7 +11,8 @@ const createContext = ({
 export type Context = inferAsyncReturnType<typeof createContext>;
 
 const appRouter = router({
-  hello: publicProcedure.query(() => "Hello from the other side!"),
+  hello: publicProcedure.query(() => ["Hello from the other side!", "You are in my hands"]),
+  welcome: publicProcedure.query(() => "Welcome to TS-Node Dev!"),
 });
 
 export type AppRouter = typeof appRouter;
@@ -29,7 +30,7 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-  res.send("Hello from api-server");
+  res.json({ result: { data: "Hello from api-server" } });
 });
 
 app.listen(port, () => {
