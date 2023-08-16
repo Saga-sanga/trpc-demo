@@ -1,4 +1,3 @@
-import { createReactQueryHooks } from "@trpc/react";
 import { createTRPCReact } from "@trpc/react-query";
 import { AppRouter } from "api-server";
 
